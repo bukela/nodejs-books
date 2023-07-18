@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 
 const indexRouter = require('./routes/index.js');
 const authorsRouter = require('./routes/authors.js');
+const booksRouter = require('./routes/books.js');
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
@@ -28,5 +29,6 @@ db.once('open', () => console.log('Connected'));
 
 app.use('/', indexRouter);
 app.use('/authors', authorsRouter);
+app.use('/books', booksRouter);
 
 app.listen(process.env.PORT || 3000);
